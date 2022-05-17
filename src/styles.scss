@@ -1,6 +1,7 @@
 body {
   margin: 0;
   height: 100%;
+  font-family: "Roboto", sans-serif;
 }
 .App {
   display: grid;
@@ -26,6 +27,8 @@ body {
     width: 100%;
     &-link {
       color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
     }
   }
 }
@@ -34,6 +37,21 @@ body {
   grid-row: 1 / 3;
   height: 100vh;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-iconContainer {
+    display: flex;
+    flex-direction: column;
+    &-btn {
+      margin: 10px 0;
+      padding: 0;
+      border: 0;
+      color: none;
+      background-color: black;
+    }
+  }
 }
 header-logo {
   display: grid;
