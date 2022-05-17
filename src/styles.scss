@@ -1,3 +1,8 @@
+$primary-color: #020203;
+$secondary-color: #74798c;
+$third-color: #ff0000;
+$fourth-color: #282d30;
+
 body {
   margin: 0;
   height: 100%;
@@ -13,7 +18,7 @@ body {
   z-index: 10;
   grid-column: 1 / 4;
   grid-row: 1 / 2;
-  background-color: black;
+  background-color: $primary-color;
   display: flex;
   align-items: center;
 
@@ -36,7 +41,7 @@ body {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
   height: 100vh;
-  background-color: black;
+  background-color: $primary-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,7 +54,7 @@ body {
       padding: 0;
       border: 0;
       color: none;
-      background-color: black;
+      background-color: $primary-color;
     }
   }
 }
@@ -69,5 +74,41 @@ main {
   grid-row: 1 / 2;
   &-title {
     margin: 0;
+    &-name {
+      color: red;
+    }
+  }
+}
+.sideContainer {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nutritionBloc {
+  display: flex;
+  background-color: #fbfbfb;
+  width: 100%;
+  height: 7.75rem;
+  border-radius: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  &-img {
+    width: 3.75rem;
+  }
+  &-text {
+    margin-left: 1.5rem;
+    &-number {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    &-nutri {
+      font-weight: 500;
+      margin: 0;
+      font-size: 0.875rem;
+      color: $secondary-color;
+    }
   }
 }
