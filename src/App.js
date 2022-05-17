@@ -6,7 +6,13 @@ function App() {
     <div className="App">
       <Header></Header>
       <SideNav></SideNav>
-      <main></main>
+      <main>
+        <header className="mainHeader">
+          <h1 className="mainHeader-title">Bonjour Thomas</h1>
+          <span>Félicitations ! vous avez explosé vos objectifs hier</span>
+        </header>
+        <aside className="sideContainer"></aside>
+      </main>
     </div>
   );
 }
