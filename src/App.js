@@ -7,6 +7,8 @@ import proteinIcon from "./assets/protein-icon.svg";
 import carbsIcon from "./assets/carbs-icon.svg";
 import fatIcon from "./assets/fat-icon.svg";
 import Barcharts from "./components/Barcharts";
+import Linechart from "./components/Linechart";
+import Radarchart from "./components/Radarchart";
 
 function App() {
   const {
@@ -28,6 +30,12 @@ function App() {
           <span>Félicitations ! vous avez explosé vos objectifs hier</span>
         </header>
         <Barcharts className="barcharts"></Barcharts>
+
+        <div className="smallGraphContainer">
+          <Linechart></Linechart>
+          <Radarchart></Radarchart>
+        </div>
+
         <aside className="sideContainer">
           <NutritionBloc
             icon={caloriesIcon}
