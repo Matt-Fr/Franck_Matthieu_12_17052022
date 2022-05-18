@@ -9,6 +9,7 @@ import fatIcon from "./assets/fat-icon.svg";
 import Barcharts from "./components/Barcharts";
 import Linechart from "./components/Linechart";
 import Radarchart from "./components/Radarchart";
+import Radialbarchart from "./components/Radialbarchart";
 
 function App() {
   const {
@@ -34,6 +35,7 @@ function App() {
         <div className="smallGraphContainer">
           <Linechart></Linechart>
           <Radarchart></Radarchart>
+          <Radialbarchart></Radialbarchart>
         </div>
 
         <aside className="sideContainer">

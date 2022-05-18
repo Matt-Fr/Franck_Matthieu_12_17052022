@@ -13,7 +13,6 @@ import { USER_AVERAGE_SESSIONS } from "../data";
 const Linechart = () => {
   const { sessions } = USER_AVERAGE_SESSIONS[0];
 
-  console.log(sessions);
   return (
     <LineChart width={258} height={263} data={sessions}>
       <CartesianGrid strokeDasharray="3 3" />

@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -57,7 +58,7 @@ body {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1 / 3;
-  height: 100vh;
+  height: 100%;
   background-color: #020203;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -178,5 +179,30 @@ main {
   margin: 0;
   font-size: 0.875rem;
   color: #74798c;
+}
+
+.barcharts {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+}
+
+.smallGraphContainer {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pieText {
+  font-size: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */
