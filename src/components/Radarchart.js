@@ -20,13 +20,26 @@ const Radarchart = () => {
       data={sessions}
       className="radar"
     >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="kind" />
-      <PolarRadiusAxis angle={30} domain={[0, 150]} />
+      <PolarGrid radialLines={false} />
+      <PolarAngleAxis
+        dataKey="kind"
+        stroke="white"
+        tickLine={false}
+        tick={{
+          fontSize: 9,
+          fontWeight: 500,
+        }}
+      />
+      <PolarRadiusAxis
+        domain={[0, 300]}
+        tick={false}
+        axisLine={false}
+        tickCount={6}
+      />
       <Radar
         dataKey="value"
-        stroke="#8884d8"
-        fill="#FF0101"
+        stroke="#FF0101B2"
+        fill="#FF0101B2"
         fillOpacity={0.8}
       />
     </RadarChart>
