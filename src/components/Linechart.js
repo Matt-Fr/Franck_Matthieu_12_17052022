@@ -14,13 +14,13 @@ const Linechart = () => {
   const { sessions } = USER_AVERAGE_SESSIONS[0];
 
   return (
-    <LineChart width={258} height={263} data={sessions}>
-      <CartesianGrid strokeDasharray="3 3" />
+    <LineChart width={258} height={263} data={sessions} className="linechart">
+      <CartesianGrid strokeDasharray="0 3" />
       <XAxis dataKey="day" />
-      <YAxis />
+      <YAxis hide />
       <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
+
+      <Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" />
     </LineChart>
   );
 };

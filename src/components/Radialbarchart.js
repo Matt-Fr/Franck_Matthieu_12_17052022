@@ -26,6 +26,7 @@ const Radialbarchart = () => {
       startAngle={90}
       endAngle={-270}
       fill="#FBFBFB"
+      className="radial"
     >
       <PolarAngleAxis
         type="number"
