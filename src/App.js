@@ -10,6 +10,8 @@ import Barcharts from "./components/Barcharts";
 import Linechart from "./components/Linechart";
 import Radarchart from "./components/Radarchart";
 import Radialbarchart from "./components/Radialbarchart";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SharedLayout from "./pages/SharedLayout";
 
 function App() {
   const {
@@ -20,48 +22,19 @@ function App() {
   } = USER_MAIN_DATA[0];
 
   return (
-    <div className="App">
-      <Header></Header>
-      <SideNav></SideNav>
-      <main>
-        <header className="mainHeader">
-          <h1 className="mainHeader-title">
-            Bonjour <span className="mainHeader-title-name">{firstName}</span>
-          </h1>
-          <span>Félicitations ! vous avez explosé vos objectifs hier</span>
-        </header>
-        <Barcharts className="barcharts"></Barcharts>
-
-        <div className="smallGraphContainer">
-          <Linechart></Linechart>
-          <Radarchart></Radarchart>
-          <Radialbarchart></Radialbarchart>
-        </div>
-
-        <aside className="sideContainer">
-          <NutritionBloc
-            icon={caloriesIcon}
-            number={calorieCount}
-            nutrient="Calories"
-          ></NutritionBloc>
-          <NutritionBloc
-            icon={proteinIcon}
-            number={proteinCount}
-            nutrient="Proteines"
-          ></NutritionBloc>
-          <NutritionBloc
-            icon={carbsIcon}
-            number={carbohydrateCount}
-            nutrient="Glucides"
-          ></NutritionBloc>
-          <NutritionBloc
-            icon={fatIcon}
-            number={lipidCount}
-            nutrient="Lipides"
-          ></NutritionBloc>
-        </aside>
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          {/* <Route index element={<Home />}></Route>
+          <Route path="*" element={<Error />}></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route
+            path="/rent/:accommodationId"
+            element={<Accommodation />}
+          ></Route> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
