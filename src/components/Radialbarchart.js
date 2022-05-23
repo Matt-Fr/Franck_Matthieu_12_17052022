@@ -10,7 +10,6 @@ import { USER_MAIN_DATA } from "../data";
 
 const Radialbarchart = () => {
   const { todayScore } = USER_MAIN_DATA[0];
-  console.log(todayScore);
 
   const data = [{ name: "L1", value: todayScore }];
   const circleSize = 50;

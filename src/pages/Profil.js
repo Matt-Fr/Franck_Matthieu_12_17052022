@@ -11,14 +11,19 @@ import Barcharts from "../components/Barcharts";
 import Linechart from "../components/Linechart";
 import Radarchart from "../components/Radarchart";
 import Radialbarchart from "../components/Radialbarchart";
+import { useParams } from "react-router-dom";
 
 const Profil = () => {
+  const identity = useParams().id;
+  const idendityNum = Number(identity);
+  const profil = USER_MAIN_DATA.find((user) => user.id === idendityNum);
+
   const {
     id,
     userInfos: { firstName, lastName, age },
     todayScore,
     keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
-  } = USER_MAIN_DATA[0];
+  } = profil;
   return (
     <>
       <header className="mainHeader">

@@ -14,6 +14,7 @@ const Home = () => {
         return (
           <Link
             className="userLink"
+            key={id}
             to={`/user/${id}`}
           >{`${firstName} ${lastName}`}</Link>
         );

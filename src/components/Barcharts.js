@@ -12,7 +12,7 @@ import { USER_ACTIVITY } from "../data";
 
 const Barcharts = () => {
   const { sessions } = USER_ACTIVITY[0];
-  console.log(sessions);
+
   return (
     <BarChart
       width={730}

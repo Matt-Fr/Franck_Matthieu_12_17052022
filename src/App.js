@@ -11,10 +11,7 @@ function App() {
           <Route index element={<Home />}></Route>
           {/* <Route path="*" element={<Error />}></Route> */}
           <Route path="profil" element={<Profil />}></Route>
-          {/* <Route
-            path="/rent/:accommodationId"
-            element={<Accommodation />}
-          ></Route> */}
+          <Route path="/user/:id" element={<Profil />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
