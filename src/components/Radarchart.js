@@ -1,16 +1,22 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
-  Legend,
 } from "recharts";
 import { USER_PERFORMANCE } from "../data";
 
 const Radarchart = () => {
-  const sessions = USER_PERFORMANCE[0].data;
+  const identity = useParams().id;
+  const idendityNum = Number(identity);
+  const performance = USER_PERFORMANCE.find(
+    (user) => user.userId === idendityNum
+  );
+
+  const sessions = performance.data;
 
   return (
     <RadarChart

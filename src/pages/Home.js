@@ -10,7 +10,7 @@ const Home = () => {
           id,
           userInfos: { firstName, lastName },
         } = person;
-        console.log(person);
+
         return (
           <Link
             className="userLink"

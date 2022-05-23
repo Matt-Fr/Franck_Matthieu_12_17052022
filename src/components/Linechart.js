@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import {
   LineChart,
   CartesianGrid,
@@ -6,12 +7,16 @@ import {
   YAxis,
   Tooltip,
   Line,
-  Legend,
 } from "recharts";
 import { USER_AVERAGE_SESSIONS } from "../data";
 
 const Linechart = () => {
-  const { sessions } = USER_AVERAGE_SESSIONS[0];
+  const identity = useParams().id;
+  const idendityNum = Number(identity);
+  const averageSessions = USER_AVERAGE_SESSIONS.find(
+    (user) => user.userId === idendityNum
+  );
+  const { sessions } = averageSessions;
 
   return (
     <LineChart width={258} height={263} data={sessions} className="linechart">

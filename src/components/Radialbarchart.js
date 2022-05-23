@@ -1,9 +1,15 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { USER_MAIN_DATA } from "../data";
 
 const Radialbarchart = () => {
-  const { todayScore } = USER_MAIN_DATA[0];
+  const identity = useParams().id;
+  const idendityNum = Number(identity);
+  const profil = USER_MAIN_DATA.find((user) => user.id === idendityNum);
+  console.log(profil);
+
+  const { todayScore } = profil;
 
   const data = [{ name: "L1", value: todayScore }];
   const circleSize = 50;
