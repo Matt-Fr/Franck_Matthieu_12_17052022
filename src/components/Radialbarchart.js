@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  Tooltip,
-  PolarAngleAxis,
-} from "recharts";
+import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { USER_MAIN_DATA } from "../data";
 
 const Radialbarchart = () => {

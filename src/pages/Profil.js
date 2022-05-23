@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
 import NutritionBloc from "../components/NutritionBloc";
-import SideNav from "../components/SideNav";
 import { USER_MAIN_DATA } from "../data";
 import caloriesIcon from "../assets/calories-icon.svg";
 import proteinIcon from "../assets/protein-icon.svg";
@@ -19,9 +17,7 @@ const Profil = () => {
   const profil = USER_MAIN_DATA.find((user) => user.id === idendityNum);
 
   const {
-    id,
-    userInfos: { firstName, lastName, age },
-    todayScore,
+    userInfos: { firstName },
     keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
   } = profil;
   return (
