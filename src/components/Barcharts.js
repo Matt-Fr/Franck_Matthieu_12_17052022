@@ -12,7 +12,7 @@ import {
 import { USER_ACTIVITY } from "../data";
 
 const Barcharts = () => {
-  const identity = useParams().id;
+  const { id: identity } = useParams();
   const idendityNum = Number(identity);
   const activity = USER_ACTIVITY.find((user) => user.userId === idendityNum);
   const { sessions } = activity;
