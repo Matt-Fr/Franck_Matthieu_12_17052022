@@ -9,39 +9,54 @@ const AppProvider = ({ children }) => {
   const [globalDataUser, setGlobalDataUser] = useState({});
   // const [data, setData] = useState({});
   // const [activity, setActivity] = useState({});
+
+  // peut être utiliser un useState pour l'id
+
   const fetchData = async () => {
     try {
       const responseInfoUser = await axios(
         `http://localhost:3001/user/${idUser}`
       );
-      const infoUserData = responseInfoUser.data.data;
+      const { data: dataInfoUser } = responseInfoUser.data;
+      const { id, keyData, todayScore, userInfos } = dataInfoUser;
 
       const responseActivity = await axios(
         `http://localhost:3001/user/${idUser}/activity`
       );
-      const dataActivity = responseActivity.data.data;
+      const { data: dataActivity } = responseActivity.data;
+      const { sessions: sessionsScore, userId } = dataActivity;
 
       const responseSessions = await axios(
         `http://localhost:3001/user/${idUser}/average-sessions`
       );
-      const dataSessions = responseSessions.data.data;
+      const { data: dataSessions } = responseSessions.data;
+
+      const { sessions: sessionsTime } = dataSessions;
 
       const responsePerformance = await axios(
         `http://localhost:3001/user/${idUser}/performance`
       );
-      const dataPerformance = responsePerformance.data.data;
+      const { data: dataPerformance } = responsePerformance.data;
+
+      const { data: performanceByKind, kind } = dataPerformance;
+
+      console.log(dataPerformance);
 
       setGlobalDataUser({
-        infoUserData: infoUserData,
-        dataActivity: dataActivity,
-        dataSessions: dataSessions,
-        dataPerformance: dataPerformance,
+        id,
+        userInfos,
+        keyData,
+        todayScore,
+        sessionsScore,
+        sessionsTime,
+        userId,
+        performanceByKind,
+        kind,
       });
     } catch (error) {
       console.log(error);
     }
   };
-  // peut être utiliser un useState pour l'id
 
   useEffect(() => {
     fetchData();

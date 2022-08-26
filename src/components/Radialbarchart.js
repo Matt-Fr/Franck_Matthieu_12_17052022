@@ -1,16 +1,22 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
-import { USER_MAIN_DATA } from "../data";
+import { useGlobalContext } from "../context";
 
 const Radialbarchart = () => {
-  const identity = useParams().id;
-  const idendityNum = Number(identity);
-  const profil = USER_MAIN_DATA.find((user) => user.id === idendityNum);
-  console.log(profil);
+  const { globalDataUser } = useGlobalContext();
 
-  const { todayScore } = profil;
+  const { todayScore } = globalDataUser || "";
 
+  console.log(todayScore);
+
+  // const { data: bigData } = globalDataUser || {};
+  // const { data } = bigData || {};
+
+  // const { score } = data || "";
+
+  // console.log(globalDataUser);
+
+  // const { todayScore } = profil;
   const data = [{ name: "L1", value: todayScore }];
   const circleSize = 50;
 
@@ -58,9 +64,7 @@ const Radialbarchart = () => {
         textAnchor="middle"
         dominantBaseline="middle"
         fill="black"
-      >
-        {todayScore * 100}% de votre objectif
-      </text>
+      ></text>
     </RadialBarChart>
   );
 };
