@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [idUser, setIdUser] = useState("12");
+  const [idUser, setIdUser] = useState("18");
   const [globalDataUser, setGlobalDataUser] = useState({});
   // const [data, setData] = useState({});
   // const [activity, setActivity] = useState({});
@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
         `http://localhost:3001/user/${idUser}`
       );
       const { data: dataInfoUser } = responseInfoUser.data;
-      const { id, keyData, todayScore, userInfos } = dataInfoUser;
+      const { id, keyData, todayScore, score, userInfos } = dataInfoUser;
 
       const responseActivity = await axios(
         `http://localhost:3001/user/${idUser}/activity`
@@ -47,6 +47,7 @@ const AppProvider = ({ children }) => {
         userInfos,
         keyData,
         todayScore,
+        score,
         sessionsScore,
         sessionsTime,
         userId,

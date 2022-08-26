@@ -3,21 +3,9 @@ import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { useGlobalContext } from "../context";
 
 const Radialbarchart = () => {
-  const { globalDataUser } = useGlobalContext();
-
-  const { todayScore } = globalDataUser || "";
-
-  console.log(todayScore);
-
-  // const { data: bigData } = globalDataUser || {};
-  // const { data } = bigData || {};
-
-  // const { score } = data || "";
-
-  // console.log(globalDataUser);
-
-  // const { todayScore } = profil;
-  const data = [{ name: "L1", value: todayScore }];
+  const { globalDataUser } = useGlobalContext() || {};
+  const { todayScore, score } = globalDataUser || "";
+  const data = [{ name: "L1", value: todayScore ? todayScore : score }];
   const circleSize = 50;
 
   return (
@@ -55,7 +43,7 @@ const Radialbarchart = () => {
         dominantBaseline="middle"
         fill="black"
       >
-        {todayScore * 100}% de votre objectif
+        {todayScore ? todayScore : score * 100}% de votre objectif
       </text>
       <text
         className="pieText"

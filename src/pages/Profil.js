@@ -10,16 +10,19 @@ import Linechart from "../components/Linechart";
 import Radarchart from "../components/Radarchart";
 import Radialbarchart from "../components/Radialbarchart";
 import { useParams } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const Profil = () => {
-  const identity = useParams().id;
-  const idendityNum = Number(identity);
-  const profil = USER_MAIN_DATA.find((user) => user.id === idendityNum);
+  const { globalDataUser } = useGlobalContext() || {};
 
-  const {
-    userInfos: { firstName },
-    keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
-  } = profil;
+  const { firstName } = globalDataUser.userInfos || "";
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
+    globalDataUser.keyData || {};
+
+  // const {
+  //   userInfos: { firstName },
+  //   keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
+  // } = globalDataUser || {};
   return (
     <>
       <header className="mainHeader">
