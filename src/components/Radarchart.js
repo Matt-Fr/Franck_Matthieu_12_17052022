@@ -8,22 +8,32 @@ import {
   Radar,
 } from "recharts";
 import { USER_PERFORMANCE } from "../data";
+import { useGlobalContext } from "../context";
 
 const Radarchart = () => {
-  const identity = useParams().id;
-  const idendityNum = Number(identity);
-  const performance = USER_PERFORMANCE.find(
-    (user) => user.userId === idendityNum
-  );
+  const { globalDataUser } = useGlobalContext() || {};
+  const { kind, performanceByKind } = globalDataUser || "";
 
-  const sessions = performance.data;
+  console.log(kind);
+
+  /* Manually updating values in the object to match mockup design */
+  for (let x = 0; x < performanceByKind.length; x++) {
+    performanceByKind[0].kind = "Cardio";
+    performanceByKind[1].kind = "Energie";
+    performanceByKind[2].kind = "Endurance";
+    performanceByKind[3].kind = "Force";
+    performanceByKind[4].kind = "Vitesse";
+    performanceByKind[5].kind = "Intensité";
+  }
+
+  console.log(performanceByKind);
 
   return (
     <RadarChart
       outerRadius={90}
       width={258}
       height={263}
-      data={sessions}
+      data={performanceByKind}
       className="radar"
     >
       <PolarGrid radialLines={false} />

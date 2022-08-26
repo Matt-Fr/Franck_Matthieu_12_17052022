@@ -40,8 +40,6 @@ const AppProvider = ({ children }) => {
 
       const { data: performanceByKind, kind } = dataPerformance;
 
-      console.log(dataPerformance);
-
       setGlobalDataUser({
         id,
         userInfos,
