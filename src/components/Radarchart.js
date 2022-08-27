@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import {
   RadarChart,
   PolarGrid,
@@ -7,12 +6,12 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
-import { USER_PERFORMANCE } from "../data";
+
 import { useGlobalContext } from "../context";
 
 const Radarchart = () => {
   const { globalDataUser } = useGlobalContext() || {};
-  const { kind, performanceByKind } = globalDataUser || "";
+  const { performanceByKind } = globalDataUser || "";
 
   /* Manually updating values in the object to match mockup design */
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import {
   BarChart,
   CartesianGrid,
@@ -9,19 +8,18 @@ import {
   Legend,
   Bar,
 } from "recharts";
-import { USER_ACTIVITY } from "../data";
+
+import { useGlobalContext } from "../context";
 
 const Barcharts = () => {
-  const { id: identity } = useParams();
-  const idendityNum = Number(identity);
-  const activity = USER_ACTIVITY.find((user) => user.userId === idendityNum);
-  const { sessions } = activity;
+  const { globalDataUser } = useGlobalContext() || {};
+  const { sessionsScore } = globalDataUser || {};
 
   return (
     <BarChart
       width={730}
       height={250}
-      data={sessions}
+      data={sessionsScore}
       margin={{ top: 0, right: 48, bottom: 32, left: 48 }}
       barGap={8}
       barCategoryGap="35%"

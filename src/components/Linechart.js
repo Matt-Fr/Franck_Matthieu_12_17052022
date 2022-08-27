@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import {
   LineChart,
   CartesianGrid,
@@ -8,7 +7,6 @@ import {
   Tooltip,
   Line,
 } from "recharts";
-import { USER_AVERAGE_SESSIONS } from "../data";
 import { useGlobalContext } from "../context";
 
 const Linechart = () => {
