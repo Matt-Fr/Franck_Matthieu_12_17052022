@@ -13,15 +13,15 @@ import { useGlobalContext } from "../context";
 
 const Linechart = () => {
   const { globalDataUser } = useGlobalContext() || {};
-  const identity = useParams().id;
-  const idendityNum = Number(identity);
-  const averageSessions = USER_AVERAGE_SESSIONS.find(
-    (user) => user.userId === idendityNum
-  );
-  const { sessions } = averageSessions;
+  const { sessionsTime } = globalDataUser || {};
 
   return (
-    <LineChart width={258} height={263} data={sessions} className="linechart">
+    <LineChart
+      width={258}
+      height={263}
+      data={sessionsTime}
+      className="linechart"
+    >
       <CartesianGrid strokeDasharray="0 3" />
       <XAxis
         dataKey="day"

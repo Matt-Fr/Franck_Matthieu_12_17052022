@@ -43,7 +43,7 @@ const Radialbarchart = () => {
         dominantBaseline="middle"
         fill="black"
       >
-        {todayScore ? todayScore : score * 100}% de votre objectif
+        {todayScore ? todayScore * 100 : score * 100}% de votre objectif
       </text>
       <text
         className="pieText"
