@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { USER_MAIN_DATA } from "../data";
+import { useGlobalContext } from "../context";
 
 const Home = () => {
+  const { setIdUser } = useGlobalContext();
+
   return (
     <div>
       {USER_MAIN_DATA.map((person) => {
@@ -15,6 +18,9 @@ const Home = () => {
           <Link
             className="userLink"
             key={id}
+            onClick={() => {
+              setIdUser(id);
+            }}
             to={`/user/${id}`}
           >{`${firstName} ${lastName}`}</Link>
         );

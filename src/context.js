@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
   // const [activity, setActivity] = useState({});
 
   // peut être utiliser un useState pour l'id
+  console.log(idUser);
 
   const fetchData = async () => {
     try {
@@ -59,7 +60,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [idUser]);
 
   console.log(globalDataUser);
 
