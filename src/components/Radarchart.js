@@ -14,19 +14,18 @@ const Radarchart = () => {
   const { globalDataUser } = useGlobalContext() || {};
   const { kind, performanceByKind } = globalDataUser || "";
 
-  console.log(kind);
-
   /* Manually updating values in the object to match mockup design */
-  for (let x = 0; x < performanceByKind.length; x++) {
-    performanceByKind[0].kind = "Cardio";
-    performanceByKind[1].kind = "Energie";
-    performanceByKind[2].kind = "Endurance";
-    performanceByKind[3].kind = "Force";
-    performanceByKind[4].kind = "Vitesse";
-    performanceByKind[5].kind = "Intensité";
-  }
 
-  console.log(performanceByKind);
+  if (performanceByKind) {
+    for (let x = 0; x < performanceByKind.length; x++) {
+      performanceByKind[0].kind = "Cardio";
+      performanceByKind[1].kind = "Energie";
+      performanceByKind[2].kind = "Endurance";
+      performanceByKind[3].kind = "Force";
+      performanceByKind[4].kind = "Vitesse";
+      performanceByKind[5].kind = "Intensité";
+    }
+  } else return "";
 
   return (
     <RadarChart

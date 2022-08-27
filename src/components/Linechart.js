@@ -9,8 +9,10 @@ import {
   Line,
 } from "recharts";
 import { USER_AVERAGE_SESSIONS } from "../data";
+import { useGlobalContext } from "../context";
 
 const Linechart = () => {
+  const { globalDataUser } = useGlobalContext() || {};
   const identity = useParams().id;
   const idendityNum = Number(identity);
   const averageSessions = USER_AVERAGE_SESSIONS.find(
