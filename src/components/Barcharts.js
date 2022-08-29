@@ -36,6 +36,19 @@ const Barcharts = () => {
         tickLine={false}
       />
       <YAxis
+        yAxisId="right"
+        allowDecimals={false}
+        axisLine={false}
+        dataKey="calories"
+        domain={["dataMin - 150", "dataMax + 100"]}
+        dx={48}
+        orientation="left"
+        stroke="#282D30"
+        tickLine={false}
+        hide={true}
+      />
+      <YAxis
+        yAxisId="left"
         allowDecimals={false}
         axisLine={false}
         dataKey="kilogram"
@@ -48,12 +61,14 @@ const Barcharts = () => {
       <Tooltip />
       <Legend />
       <Bar
+        yAxisId="left"
         dataKey="kilogram"
         fill="#282D30"
         radius={[50, 50, 0, 0]}
         maxBarSize={8}
       />
       <Bar
+        yAxisId="right"
         dataKey="calories"
         fill="#E60000"
         radius={[50, 50, 0, 0]}
