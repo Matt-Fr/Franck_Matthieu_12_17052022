@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 const NutritionBloc = ({ icon, number, nutrient }) => {
   return (
@@ -12,6 +13,15 @@ const NutritionBloc = ({ icon, number, nutrient }) => {
       </div>
     </div>
   );
+};
+
+NutritionBloc.propTypes = {
+  number: PropTypes.number.isRequired,
+  nutrient: PropTypes.string.isRequired,
+};
+NutritionBloc.defaultProps = {
+  number: 0,
+  nutrient: "nutrient",
 };
 
 export default NutritionBloc;

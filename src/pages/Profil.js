@@ -1,6 +1,6 @@
 import React from "react";
 import NutritionBloc from "../components/NutritionBloc";
-import { USER_MAIN_DATA } from "../data";
+
 import caloriesIcon from "../assets/calories-icon.svg";
 import proteinIcon from "../assets/protein-icon.svg";
 import carbsIcon from "../assets/carbs-icon.svg";
@@ -9,7 +9,6 @@ import Barcharts from "../components/Barcharts";
 import Linechart from "../components/Linechart";
 import Radarchart from "../components/Radarchart";
 import Radialbarchart from "../components/Radialbarchart";
-import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 const Profil = () => {
