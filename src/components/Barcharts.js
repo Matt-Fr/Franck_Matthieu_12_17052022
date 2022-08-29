@@ -15,6 +15,8 @@ const Barcharts = () => {
   const { globalDataUser } = useGlobalContext() || {};
   const { sessionsScore } = globalDataUser || {};
 
+  console.log(sessionsScore);
+
   return (
     <BarChart
       width={730}
@@ -26,10 +28,10 @@ const Barcharts = () => {
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
-        dataKey="day"
+        dataKey=""
         dy={16}
         padding={{ left: -48, right: -48 }}
-        stroke="#DEDEDE"
+        stroke="#9B9EAC"
         tick={{ fontSize: 14, fontWeight: 500 }}
         tickLine={false}
       />
