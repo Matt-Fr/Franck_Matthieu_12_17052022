@@ -38,21 +38,45 @@ const Radialbarchart = () => {
       <text
         className="pieText"
         x={129}
-        y={131.5}
+        y={120}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="black"
+        fill="#282D30"
+        style={{
+          fontSize: "1.6rem",
+          fontWeight: "bold",
+        }}
       >
-        {todayScore ? todayScore * 100 : score * 100}% de votre objectif
+        {todayScore ? todayScore * 100 : score * 100}%
       </text>
       <text
         className="pieText"
         x={129}
-        y={120}
+        y={150}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="black"
-      ></text>
+        fill="#74798C"
+        style={{
+          fontSize: "1.1rem",
+          color: "#74798C",
+        }}
+      >
+        de votre
+      </text>
+      <text
+        className="pieText"
+        x={129}
+        y={170}
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="#74798C"
+        style={{
+          fontSize: "1.1rem",
+          color: "#74798C",
+        }}
+      >
+        objectif
+      </text>
     </RadialBarChart>
   );
 };

@@ -9,9 +9,9 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 117px 1fr;
-      grid-template-columns: 117px 1fr;
+  grid-template-columns: 117px 1fr;
   -ms-grid-rows: 91px 1fr;
-      grid-template-rows: 91px 1fr;
+  grid-template-rows: 91px 1fr;
 }
 
 .header {
@@ -27,8 +27,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .header-logo {
@@ -41,7 +41,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -65,14 +65,14 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .asideNav-iconContainer {
@@ -81,8 +81,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .asideNav-iconContainer-btn {
@@ -104,9 +104,9 @@ main {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 1fr;
-      grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
   -ms-grid-rows: 1fr 3fr 2fr;
-      grid-template-rows: 1fr 3fr 2fr;
+  grid-template-rows: 1fr 3fr 2fr;
 }
 
 .mainHeader {
@@ -138,11 +138,11 @@ main {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .nutritionBloc {
@@ -154,11 +154,11 @@ main {
   height: 7.75rem;
   border-radius: 0.3rem;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .nutritionBloc-img {
@@ -202,11 +202,7 @@ main {
   display: flex;
 }
 
-.pieText {
-  font-size: 1rem;
-}
-
-.radar {
+/* .radar {
   background: #282d30;
 }
 
@@ -216,5 +212,5 @@ main {
 
 .linechart {
   background: #ff0000;
-}
+} */
 /*# sourceMappingURL=styles.css.map */
