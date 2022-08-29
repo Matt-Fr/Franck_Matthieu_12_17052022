@@ -42,7 +42,7 @@ const Barcharts = () => {
         domain={["dataMin - 1", "dataMax + 2"]}
         dx={48}
         orientation="right"
-        stroke="#DEDEDE"
+        stroke="#282D30"
         tickLine={false}
       />
       <Tooltip />
