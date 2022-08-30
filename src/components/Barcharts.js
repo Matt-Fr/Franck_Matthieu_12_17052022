@@ -80,6 +80,7 @@ const Barcharts = () => {
           color: "white",
         }}
         labelStyle={{ display: "none" }}
+        formatter={(value, name, unit) => [value, unit]}
       />
       <Legend
         align="right"
@@ -96,6 +97,7 @@ const Barcharts = () => {
         radius={[50, 50, 0, 0]}
         maxBarSize={8}
         name="Poids (kg)"
+        unit=" kg"
       />
       <Bar
         yAxisId="right"
@@ -104,6 +106,7 @@ const Barcharts = () => {
         radius={[50, 50, 0, 0]}
         maxBarSize={8}
         name="Calories brûlées (kcal)"
+        unit=" kcal"
       />
     </BarChart>
   );

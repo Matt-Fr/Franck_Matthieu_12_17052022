@@ -41,6 +41,10 @@ const Linechart = () => {
         axisLine={false}
         tick={{ fill: "#FFFFFF" }}
         padding={{ left: 15, right: 15 }}
+        style={{
+          fontSize: "0.8rem",
+          opacity: 0.5,
+        }}
       />
       <YAxis
         hide={true}
@@ -77,6 +81,28 @@ const Linechart = () => {
         strokeWidth={2}
         dot={false}
       />
+      <text
+        x={30}
+        y={50}
+        fill="#FFFFFF"
+        style={{
+          fontSize: "0.9rem",
+          opacity: 0.5,
+        }}
+      >
+        Durée moyenne des
+      </text>
+      <text
+        x={30}
+        y={70}
+        fill="#FFFFFF"
+        style={{
+          fontSize: "0.9rem",
+          opacity: 0.5,
+        }}
+      >
+        sessions
+      </text>
     </LineChart>
   );
 };
