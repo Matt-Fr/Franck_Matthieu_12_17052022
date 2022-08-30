@@ -25,24 +25,24 @@ const Radarchart = () => {
       performanceByKind[5].kind = "Intensité";
     }
   } else return "";
-
+  const startAngle = 210;
   return (
     <RadarChart
-      outerRadius={90}
       width={258}
       height={263}
       data={performanceByKind}
       className="radar"
+      outerRadius={80}
+      startAngle={startAngle}
+      endAngle={startAngle + 360}
     >
       <PolarGrid radialLines={false} />
       <PolarAngleAxis
         dataKey="kind"
         stroke="white"
         tickLine={false}
-        tick={{
-          fontSize: 9,
-          fontWeight: 500,
-        }}
+        tick={{ fill: "white", fontSize: 12, fontWeight: 500 }}
+        tickSize={14}
       />
       <PolarRadiusAxis
         domain={[0, 300]}
