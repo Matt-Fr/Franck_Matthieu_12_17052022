@@ -14,19 +14,33 @@ import { useGlobalContext } from "../context";
 const Barcharts = () => {
   const { globalDataUser } = useGlobalContext() || {};
   const { sessionsScore } = globalDataUser || {};
+  const contentStyle = {
+    color: "#74798c",
+    fontSize: "14px",
+  };
+  const renderLegend = (value) => {
+    return <span style={contentStyle}>{value}</span>;
+  };
 
   console.log(sessionsScore);
 
   return (
     <BarChart
-      width={730}
-      height={250}
+      width={835}
+      height={320}
       data={sessionsScore}
       margin={{ top: 0, right: 48, bottom: 32, left: 48 }}
       barGap={8}
       barCategoryGap="35%"
+      style={{ backgroundColor: "#FBFBFB" }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid
+        strokeDasharray="2 2"
+        horizontal={true}
+        vertical={false}
+        stroke="#DEDEDE"
+      />
+
       <XAxis
         dataKey=""
         dy={16}
@@ -40,10 +54,10 @@ const Barcharts = () => {
         allowDecimals={false}
         axisLine={false}
         dataKey="calories"
-        domain={["dataMin - 150", "dataMax + 100"]}
+        domain={["dataMin - 100", "dataMax + 100"]}
         dx={48}
         orientation="left"
-        stroke="#282D30"
+        stroke="#9B9EAC"
         tickLine={false}
         hide={true}
       />
@@ -55,17 +69,33 @@ const Barcharts = () => {
         domain={["dataMin - 1", "dataMax + 2"]}
         dx={48}
         orientation="right"
-        stroke="#282D30"
+        stroke="#9B9EAC"
         tickLine={false}
       />
-      <Tooltip />
-      <Legend />
+      <Tooltip
+        contentStyle={{
+          backgroundColor: "#E60000",
+        }}
+        itemStyle={{
+          color: "white",
+        }}
+        labelStyle={{ display: "none" }}
+      />
+      <Legend
+        align="right"
+        verticalAlign="top"
+        iconType="circle"
+        iconSize={9}
+        height={60}
+        formatter={renderLegend}
+      />
       <Bar
         yAxisId="left"
         dataKey="kilogram"
         fill="#282D30"
         radius={[50, 50, 0, 0]}
         maxBarSize={8}
+        name="Poids (kg)"
       />
       <Bar
         yAxisId="right"
@@ -73,6 +103,7 @@ const Barcharts = () => {
         fill="#E60000"
         radius={[50, 50, 0, 0]}
         maxBarSize={8}
+        name="Calories brûlées (kcal)"
       />
     </BarChart>
   );
