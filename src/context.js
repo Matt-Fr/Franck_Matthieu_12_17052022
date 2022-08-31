@@ -7,13 +7,11 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [idUser, setIdUser] = useState("18");
   const [globalDataUser, setGlobalDataUser] = useState({});
-  // const [data, setData] = useState({});
-  // const [activity, setActivity] = useState({});
-
-  // peut être utiliser un useState pour l'id
-  console.log(idUser);
 
   useEffect(() => {
+    /**
+     * fetch the data and create a new object
+     */
     const fetchData = async () => {
       try {
         const responseInfoUser = await axios(

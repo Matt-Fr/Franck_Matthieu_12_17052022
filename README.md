@@ -4,9 +4,9 @@ Project 12 of Openclassrooms "Front-end Developer program"
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
-## Develop a Dashboard for Analytics with React
+## Creating an Analytical Dashboard Using React and Recharts
 
-Create the consumer-facing dashboard of a sports analytics platform, SportSee. Build graphs and charts with React and use an API to fetch data.
+Create a consumer-facing dashboard for a sports analytics platform, SportSee. Build graphs and charts with React and use an API to fetch the data utilized in the data visualizations.
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ const Radarchart = () => {
   const { globalDataUser } = useGlobalContext() || {};
   const { performanceByKind } = globalDataUser || "";
 
-  /* Manually updating values in the object to match mockup design */
+  /* Manually updating values in the object to match the design */
 
   if (performanceByKind) {
     for (let x = 0; x < performanceByKind.length; x++) {
