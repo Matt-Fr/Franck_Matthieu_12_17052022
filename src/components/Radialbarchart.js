@@ -3,9 +3,19 @@ import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { useGlobalContext } from "../context";
 
 const Radialbarchart = () => {
-  const { globalDataUser } = useGlobalContext() || {};
+  const { globalDataUser, mockedPerson, mockUserActive } =
+    useGlobalContext() || {};
   const { todayScore, score } = globalDataUser || "";
-  const data = [{ name: "L1", value: todayScore ? todayScore : score }];
+  const data = [
+    {
+      name: "L1",
+      value: mockUserActive
+        ? mockedPerson.mockTodayScore
+        : todayScore
+        ? todayScore
+        : score,
+    },
+  ];
   const circleSize = 50;
 
   return (
@@ -47,7 +57,12 @@ const Radialbarchart = () => {
           fontWeight: "bold",
         }}
       >
-        {todayScore ? todayScore * 100 : score * 100}%
+        {mockUserActive
+          ? mockedPerson.mockTodayScore * 100
+          : todayScore * 100
+          ? todayScore * 100
+          : score * 100}
+        %
       </text>
       <text
         className="pieText"

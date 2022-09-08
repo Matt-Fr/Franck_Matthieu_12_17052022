@@ -12,7 +12,8 @@ import {
 import { useGlobalContext } from "../context";
 
 const Barcharts = () => {
-  const { globalDataUser } = useGlobalContext() || {};
+  const { globalDataUser, mockedPerson, mockUserActive } =
+    useGlobalContext() || {};
   const { sessionsScore } = globalDataUser || {};
   const contentStyle = {
     color: "#74798c",
@@ -22,13 +23,11 @@ const Barcharts = () => {
     return <span style={contentStyle}>{value}</span>;
   };
 
-  console.log(sessionsScore);
-
   return (
     <BarChart
       width={835}
       height={320}
-      data={sessionsScore}
+      data={mockUserActive ? mockedPerson.mockSessionsScore : sessionsScore}
       margin={{ top: 0, right: 48, bottom: 32, left: 48 }}
       barGap={8}
       barCategoryGap="35%"

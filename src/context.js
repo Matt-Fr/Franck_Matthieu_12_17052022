@@ -86,6 +86,8 @@ const AppProvider = ({ children }) => {
       this.mockLastName = mockMainData.userInfos.lastName;
       this.mockSessions = mockAverageSessions.sessions;
       this.mockKeyData = mockMainData.keyData;
+      this.mockSessionsScore = mockUserActivity.sessions;
+      this.mockTodayScore = mockMainData.todayScore || mockMainData.score;
     }
   }
 
@@ -96,7 +98,7 @@ const AppProvider = ({ children }) => {
     mockUserPerformance
   );
 
-  console.log(mockedPerson.mockKeyData);
+  console.log(mockedPerson.mockSessionsScore);
 
   return (
     <AppContext.Provider
