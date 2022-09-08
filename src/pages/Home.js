@@ -7,8 +7,7 @@ const Home = () => {
   /**
    * retrieve IdUser
    */
-  const { setIdUser, idUser, setMockUser, mockUser, setMockUserActive } =
-    useGlobalContext();
+  const { setIdUser, mockUser, setMockUserActive } = useGlobalContext();
 
   console.log(mockUser);
 

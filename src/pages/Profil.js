@@ -12,7 +12,7 @@ import Radialbarchart from "../components/Radialbarchart";
 import { useGlobalContext } from "../context";
 
 const Profil = () => {
-  const { globalDataUser, mockedPerson, setMockUserActive, mockUserActive } =
+  const { globalDataUser, mockedPerson, mockUserActive } =
     useGlobalContext() || {};
 
   const { firstName } = globalDataUser.userInfos || "";
@@ -43,22 +43,36 @@ const Profil = () => {
       <aside className="sideContainer">
         <NutritionBloc
           icon={caloriesIcon}
-          number={calorieCount}
+          number={
+            mockUserActive
+              ? mockedPerson.mockKeyData.calorieCount
+              : calorieCount
+          }
           nutrient="Calories"
         ></NutritionBloc>
         <NutritionBloc
           icon={proteinIcon}
-          number={proteinCount}
+          number={
+            mockUserActive
+              ? mockedPerson.mockKeyData.proteinCount
+              : proteinCount
+          }
           nutrient="Proteines"
         ></NutritionBloc>
         <NutritionBloc
           icon={carbsIcon}
-          number={carbohydrateCount}
+          number={
+            mockUserActive
+              ? mockedPerson.mockKeyData.carbohydrateCount
+              : carbohydrateCount
+          }
           nutrient="Glucides"
         ></NutritionBloc>
         <NutritionBloc
           icon={fatIcon}
-          number={lipidCount}
+          number={
+            mockUserActive ? mockedPerson.mockKeyData.lipidCount : lipidCount
+          }
           nutrient="Lipides"
         ></NutritionBloc>
       </aside>
