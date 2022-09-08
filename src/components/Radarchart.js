@@ -10,7 +10,8 @@ import {
 import { useGlobalContext } from "../context";
 
 const Radarchart = () => {
-  const { globalDataUser } = useGlobalContext() || {};
+  const { globalDataUser, mockedPerson, mockUserActive } =
+    useGlobalContext() || {};
   const { performanceByKind } = globalDataUser || "";
 
   /* Manually updating values in the object to match the design */
@@ -25,12 +26,15 @@ const Radarchart = () => {
       performanceByKind[5].kind = "Intensité";
     }
   } else return "";
+
+  console.log(mockedPerson.mockPerformance);
+
   const startAngle = 210;
   return (
     <RadarChart
       width={258}
       height={263}
-      data={performanceByKind}
+      data={mockUserActive ? mockedPerson.mockPerformance : performanceByKind}
       className="radar"
       outerRadius={80}
       startAngle={startAngle}
