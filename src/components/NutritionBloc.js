@@ -17,12 +17,12 @@ const NutritionBloc = ({ icon, number, nutrient }) => {
 };
 
 NutritionBloc.propTypes = {
-  icon: PropTypes.oneOf(["img", "svg"]),
+  // icon: PropTypes.oneOf(["img", "svg"]),
   number: PropTypes.number.isRequired,
   nutrient: PropTypes.string.isRequired,
 };
 NutritionBloc.defaultProps = {
-  icon: carbsIcon,
+  // icon: carbsIcon,
   number: 0,
   nutrient: "nutrient",
 };

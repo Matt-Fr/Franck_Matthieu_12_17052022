@@ -12,21 +12,23 @@ import Radialbarchart from "../components/Radialbarchart";
 import { useGlobalContext } from "../context";
 
 const Profil = () => {
-  const { globalDataUser } = useGlobalContext() || {};
+  const { globalDataUser, mockedPerson, setMockUserActive, mockUserActive } =
+    useGlobalContext() || {};
 
   const { firstName } = globalDataUser.userInfos || "";
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
     globalDataUser.keyData || {};
 
-  // const {
-  //   userInfos: { firstName },
-  //   keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
-  // } = globalDataUser || {};
+  console.log(mockedPerson);
+
   return (
     <>
       <header className="mainHeader">
         <h1 className="mainHeader-title">
-          Bonjour <span className="mainHeader-title-name">{firstName}</span>
+          Bonjour{" "}
+          <span className="mainHeader-title-name">
+            {mockUserActive ? mockedPerson.mockFirstName : firstName}
+          </span>
         </h1>
         <span>Félicitations ! vous avez explosé vos objectifs hier</span>
       </header>

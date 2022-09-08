@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
+import mockedData from "./data";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [idUser, setIdUser] = useState("18");
   const [globalDataUser, setGlobalDataUser] = useState({});
+  const [mockUser, setMockUser] = useState(0);
+  const [mockUserActive, setMockUserActive] = useState(false);
 
   useEffect(() => {
     /**
@@ -57,12 +60,57 @@ const AppProvider = ({ children }) => {
       }
     };
     fetchData();
+
+    //allow to switch data for mock users
+    if (idUser === 12) {
+      setMockUser(0);
+    } else if (idUser === 18) setMockUser(1);
   }, [idUser]);
 
-  console.log(globalDataUser);
+  const mockAverageSessions = mockedData.USER_AVERAGE_SESSIONS[mockUser];
+  const mockMainData = mockedData.USER_MAIN_DATA[mockUser];
+  const mockUserActivity = mockedData.USER_ACTIVITY[mockUser];
+  const mockUserPerformance = mockedData.USER_PERFORMANCE[mockUser];
+
+  console.log(mockedData);
+
+  class UserData {
+    constructor(
+      mockAverageSessions,
+      mockMainData,
+      mockUserActivity,
+      mockUserPerformance
+    ) {
+      this.mockId = mockMainData.id;
+      this.mockFirstName = mockMainData.userInfos.firstName;
+      this.mockLastName = mockMainData.userInfos.lastName;
+      this.mockSessions = mockAverageSessions.sessions;
+    }
+  }
+
+  let mockedPerson = new UserData(
+    mockAverageSessions,
+    mockMainData,
+    mockUserActivity,
+    mockUserPerformance
+  );
+
+  console.log();
 
   return (
-    <AppContext.Provider value={{ globalDataUser, idUser, setIdUser }}>
+    <AppContext.Provider
+      value={{
+        globalDataUser,
+        idUser,
+        setIdUser,
+        UserData,
+        mockUser,
+        setMockUser,
+        mockedPerson,
+        mockUserActive,
+        setMockUserActive,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
