@@ -10,10 +10,11 @@ import {
 import { useGlobalContext } from "../context";
 
 const Linechart = () => {
-  const { globalDataUser } = useGlobalContext() || {};
+  const { globalDataUser, mockedPerson, mockUserActive } =
+    useGlobalContext() || {};
   const { sessionsTime } = globalDataUser || {};
 
-  console.log(sessionsTime);
+  console.log(mockedPerson);
 
   if (sessionsTime) {
     for (let x = 0; x < sessionsTime.length; x++) {
@@ -25,13 +26,21 @@ const Linechart = () => {
       sessionsTime[5].day = "S";
       sessionsTime[6].day = "D";
     }
+  } else if (mockedPerson.mockSessions) {
+    mockedPerson.mockSessions[0].day = "L";
+    mockedPerson.mockSessions[1].day = "M";
+    mockedPerson.mockSessions[2].day = "M";
+    mockedPerson.mockSessions[3].day = "J";
+    mockedPerson.mockSessions[4].day = "V";
+    mockedPerson.mockSessions[5].day = "S";
+    mockedPerson.mockSessions[6].day = "D";
   } else return "";
 
   return (
     <LineChart
       width={258}
       height={263}
-      data={sessionsTime}
+      data={mockUserActive ? mockedPerson.mockSessions : sessionsTime}
       className="linechart"
     >
       <CartesianGrid strokeDasharray="0 3" />
