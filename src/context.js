@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     /**
-     * fetch the data and create a new object
+     * fetch the data from the API and create a new object with useState
      */
     const fetchData = async () => {
       try {
@@ -61,7 +61,8 @@ const AppProvider = ({ children }) => {
     };
     fetchData();
 
-    //allow to switch data for mock users
+    //allow to switch person for mock users according to their ID
+
     if (idUser === 12) {
       setMockUser(0);
     } else if (idUser === 18) setMockUser(1);
@@ -73,7 +74,9 @@ const AppProvider = ({ children }) => {
   const mockUserPerformance = mockedData.USER_PERFORMANCE[mockUser];
 
   console.log(mockedData);
-
+  /**
+   * Create a new object that will only be used for mockData
+   */
   class UserData {
     constructor(
       mockAverageSessions,
@@ -92,12 +95,17 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  /**
+   * instance the new object with the UserData class
+   */
+
   let mockedPerson = new UserData(
     mockAverageSessions,
     mockMainData,
     mockUserActivity,
     mockUserPerformance
   );
+
   for (let x = 0; x < mockedPerson.mockPerformance.length; x++) {
     mockedPerson.mockPerformance[0].kind = "Cardio";
     mockedPerson.mockPerformance[1].kind = "Energie";
@@ -106,8 +114,6 @@ const AppProvider = ({ children }) => {
     mockedPerson.mockPerformance[4].kind = "Vitesse";
     mockedPerson.mockPerformance[5].kind = "Intensité";
   }
-
-  console.log(mockedPerson.mockSessionsScore);
 
   return (
     <AppContext.Provider

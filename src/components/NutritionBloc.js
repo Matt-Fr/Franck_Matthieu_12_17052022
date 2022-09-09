@@ -1,6 +1,12 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import carbsIcon from "../assets/carbs-icon.svg";
+
+/**
+ * this componenent will display a nutrition bloc on the side
+ * @param {SVGAElement} icon
+ * @param {number} number
+ * @returns return the componenet
+ */
 
 const NutritionBloc = ({ icon, number, nutrient }) => {
   return (
@@ -17,12 +23,12 @@ const NutritionBloc = ({ icon, number, nutrient }) => {
 };
 
 NutritionBloc.propTypes = {
-  // icon: PropTypes.oneOf(["img", "svg"]),
+  icon: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
   nutrient: PropTypes.string.isRequired,
 };
 NutritionBloc.defaultProps = {
-  // icon: carbsIcon,
+  icon: "",
   number: 0,
   nutrient: "nutrient",
 };

@@ -4,9 +4,6 @@ import { USER_MAIN_DATA } from "../data";
 import { useGlobalContext } from "../context";
 
 const Home = () => {
-  /**
-   * retrieve IdUser
-   */
   const { setIdUser, mockUser, setMockUserActive } = useGlobalContext();
 
   console.log(mockUser);
