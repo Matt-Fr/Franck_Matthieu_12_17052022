@@ -26,7 +26,9 @@ const Linechart = () => {
       sessionsTime[5].day = "S";
       sessionsTime[6].day = "D";
     }
-  } else if (mockedPerson.mockSessions) {
+  } else return "";
+
+  if (mockedPerson.mockSessions) {
     mockedPerson.mockSessions[0].day = "L";
     mockedPerson.mockSessions[1].day = "M";
     mockedPerson.mockSessions[2].day = "M";
@@ -34,7 +36,7 @@ const Linechart = () => {
     mockedPerson.mockSessions[4].day = "V";
     mockedPerson.mockSessions[5].day = "S";
     mockedPerson.mockSessions[6].day = "D";
-  } else return "";
+  }
 
   return (
     <LineChart
