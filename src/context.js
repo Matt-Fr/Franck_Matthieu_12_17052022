@@ -73,7 +73,6 @@ const AppProvider = ({ children }) => {
   const mockUserActivity = mockedData.USER_ACTIVITY[mockUser];
   const mockUserPerformance = mockedData.USER_PERFORMANCE[mockUser];
 
-  console.log(mockedData);
   /**
    * Create a new object that will only be used for mockData
    */
