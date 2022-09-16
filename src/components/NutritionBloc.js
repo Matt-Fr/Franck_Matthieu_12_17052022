@@ -3,9 +3,6 @@ import { PropTypes } from "prop-types";
 
 /**
  * this componenent will display a nutrition bloc on the side
- * @param {SVGAElement} icon
- * @param {number} number
- * @returns return the componenet
  */
 
 const NutritionBloc = ({ icon, number, nutrient }) => {
