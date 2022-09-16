@@ -21,7 +21,9 @@ const AppProvider = ({ children }) => {
           `http://localhost:3001/user/${idUser}`
         );
         const { data: dataInfoUser } = responseInfoUser.data;
-        const { id, keyData, todayScore, score, userInfos } = dataInfoUser;
+        const { id, keyData, userInfos } = dataInfoUser;
+
+        const score = dataInfoUser.todayScore || dataInfoUser.score;
 
         const responseActivity = await axios(
           `http://localhost:3001/user/${idUser}/activity`
@@ -47,7 +49,6 @@ const AppProvider = ({ children }) => {
           id,
           userInfos,
           keyData,
-          todayScore,
           score,
           sessionsScore,
           sessionsTime,

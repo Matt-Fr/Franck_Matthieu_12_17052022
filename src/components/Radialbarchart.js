@@ -5,15 +5,11 @@ import { useGlobalContext } from "../context";
 const Radialbarchart = () => {
   const { globalDataUser, mockedPerson, mockUserActive } =
     useGlobalContext() || {};
-  const { todayScore, score } = globalDataUser || "";
+  const { score } = globalDataUser || "";
   const data = [
     {
       name: "L1",
-      value: mockUserActive
-        ? mockedPerson.mockTodayScore
-        : todayScore
-        ? todayScore
-        : score,
+      value: mockUserActive ? mockedPerson.mockTodayScore : score,
     },
   ];
   const circleSize = 50;
@@ -57,12 +53,7 @@ const Radialbarchart = () => {
           fontWeight: "bold",
         }}
       >
-        {mockUserActive
-          ? mockedPerson.mockTodayScore * 100
-          : todayScore * 100
-          ? todayScore * 100
-          : score * 100}
-        %
+        {mockUserActive ? mockedPerson.mockTodayScore * 100 : score * 100}%
       </text>
       <text
         className="pieText"
