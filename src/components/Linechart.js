@@ -16,27 +16,20 @@ const Linechart = () => {
 
   console.log(mockedPerson);
 
-  if (sessionsTime) {
-    for (let x = 0; x < sessionsTime.length; x++) {
-      sessionsTime[0].day = "L";
-      sessionsTime[1].day = "M";
-      sessionsTime[2].day = "M";
-      sessionsTime[3].day = "J";
-      sessionsTime[4].day = "V";
-      sessionsTime[5].day = "S";
-      sessionsTime[6].day = "D";
+  const changeNumbersToDay = (sessionNumber) => {
+    if (sessionNumber) {
+      sessionNumber[0].day = "L";
+      sessionNumber[1].day = "M";
+      sessionNumber[2].day = "M";
+      sessionNumber[3].day = "J";
+      sessionNumber[4].day = "V";
+      sessionNumber[5].day = "S";
+      sessionNumber[6].day = "D";
     }
-  } else return "";
+  };
 
-  if (mockedPerson.mockSessions) {
-    mockedPerson.mockSessions[0].day = "L";
-    mockedPerson.mockSessions[1].day = "M";
-    mockedPerson.mockSessions[2].day = "M";
-    mockedPerson.mockSessions[3].day = "J";
-    mockedPerson.mockSessions[4].day = "V";
-    mockedPerson.mockSessions[5].day = "S";
-    mockedPerson.mockSessions[6].day = "D";
-  }
+  changeNumbersToDay(sessionsTime);
+  changeNumbersToDay(mockedPerson.mockSessions);
 
   return (
     <LineChart
