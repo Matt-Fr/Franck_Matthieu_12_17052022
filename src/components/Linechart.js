@@ -16,6 +16,11 @@ const Linechart = () => {
 
   console.log(mockedPerson);
 
+  /**
+   *
+   * @param {object} sessionNumber
+   */
+
   const changeNumbersToDay = (sessionNumber) => {
     if (sessionNumber) {
       sessionNumber[0].day = "L";

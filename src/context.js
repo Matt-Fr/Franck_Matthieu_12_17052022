@@ -106,15 +106,6 @@ const AppProvider = ({ children }) => {
     mockUserPerformance
   );
 
-  for (let x = 0; x < mockedPerson.mockPerformance.length; x++) {
-    mockedPerson.mockPerformance[0].kind = "Cardio";
-    mockedPerson.mockPerformance[1].kind = "Energie";
-    mockedPerson.mockPerformance[2].kind = "Endurance";
-    mockedPerson.mockPerformance[3].kind = "Force";
-    mockedPerson.mockPerformance[4].kind = "Vitesse";
-    mockedPerson.mockPerformance[5].kind = "Intensité";
-  }
-
   return (
     <AppContext.Provider
       value={{

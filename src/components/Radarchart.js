@@ -14,20 +14,24 @@ const Radarchart = () => {
     useGlobalContext() || {};
   const { performanceByKind } = globalDataUser || "";
 
-  /* Manually updating values in the object to match the design */
+  /**
+   * manually update numbers to performance type to match the design
+   * @param {object} performance
+   */
 
-  if (performanceByKind) {
-    for (let x = 0; x < performanceByKind.length; x++) {
-      performanceByKind[0].kind = "Cardio";
-      performanceByKind[1].kind = "Energie";
-      performanceByKind[2].kind = "Endurance";
-      performanceByKind[3].kind = "Force";
-      performanceByKind[4].kind = "Vitesse";
-      performanceByKind[5].kind = "Intensité";
+  const changeNumbersToPerformance = (performance) => {
+    if (performance) {
+      performance[0].kind = "Cardio";
+      performance[1].kind = "Energie";
+      performance[2].kind = "Endurance";
+      performance[3].kind = "Force";
+      performance[4].kind = "Vitesse";
+      performance[5].kind = "Intensité";
     }
-  } else return "";
+  };
 
-  console.log(mockedPerson.mockPerformance);
+  changeNumbersToPerformance(performanceByKind);
+  changeNumbersToPerformance(mockedPerson.mockPerformance);
 
   const startAngle = 210;
   return (
