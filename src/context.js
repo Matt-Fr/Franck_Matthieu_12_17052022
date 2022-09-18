@@ -99,7 +99,7 @@ const AppProvider = ({ children }) => {
    * instance the new object with the UserData class
    */
 
-  let mockedPerson = new UserData(
+  const mockedPerson = new UserData(
     mockAverageSessions,
     mockMainData,
     mockUserActivity,

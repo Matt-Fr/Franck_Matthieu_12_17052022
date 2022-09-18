@@ -14,8 +14,6 @@ const Linechart = () => {
     useGlobalContext() || {};
   const { sessionsTime } = globalDataUser || {};
 
-  console.log(mockedPerson);
-
   /**
    *
    * @param {object} sessionNumber

@@ -4,9 +4,7 @@ import { USER_MAIN_DATA } from "../data";
 import { useGlobalContext } from "../context";
 
 const Home = () => {
-  const { setIdUser, mockUser, setMockUserActive } = useGlobalContext();
-
-  console.log(mockUser);
+  const { setIdUser, setMockUserActive } = useGlobalContext();
 
   return (
     <div className="containerLinkName">

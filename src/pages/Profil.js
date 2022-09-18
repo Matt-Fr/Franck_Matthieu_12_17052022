@@ -19,8 +19,6 @@ const Profil = () => {
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
     globalDataUser.keyData || {};
 
-  console.log(mockedPerson);
-
   return (
     <>
       <header className="mainHeader">
