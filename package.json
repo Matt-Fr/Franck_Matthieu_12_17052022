@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "yarn start:api & react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:api": "cd ./api && yarn dev"
