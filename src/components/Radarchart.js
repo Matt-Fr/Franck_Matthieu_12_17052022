@@ -6,39 +6,60 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
-
-import { useGlobalContext } from "../context";
+import { useParams } from "react-router-dom";
+import { USER_PERFORMANCE } from "../data"; // Adjust path as needed
 
 const Radarchart = () => {
-  const { globalDataUser, mockedPerson, mockUserActive } =
-    useGlobalContext() || {};
-  const { performanceByKind } = globalDataUser || "";
+  const { id } = useParams(); // Extract user ID from URL
+
+  // Retrieve user performance data based on user ID
+  const userPerformance = USER_PERFORMANCE.find(
+    (performance) => performance.userId === parseInt(id, 10)
+  );
+
+  const performanceByKind = userPerformance ? userPerformance.data : [];
 
   /**
-   * manually update numbers to performance type to match the design
+   * Manually update numbers to performance type to match the design
    * @param {object} performance
    */
-
   const changeNumbersToPerformance = (performance) => {
     if (performance) {
-      performance[0].kind = "Cardio";
-      performance[1].kind = "Energie";
-      performance[2].kind = "Endurance";
-      performance[3].kind = "Force";
-      performance[4].kind = "Vitesse";
-      performance[5].kind = "Intensité";
+      performance.forEach((item) => {
+        switch (item.kind) {
+          case 1:
+            item.kind = "Cardio";
+            break;
+          case 2:
+            item.kind = "Energie";
+            break;
+          case 3:
+            item.kind = "Endurance";
+            break;
+          case 4:
+            item.kind = "Force";
+            break;
+          case 5:
+            item.kind = "Vitesse";
+            break;
+          case 6:
+            item.kind = "Intensité";
+            break;
+          default:
+            break;
+        }
+      });
     }
   };
 
   changeNumbersToPerformance(performanceByKind);
-  changeNumbersToPerformance(mockedPerson.mockPerformance);
 
   const startAngle = 210;
   return (
     <RadarChart
       width={258}
       height={263}
-      data={mockUserActive ? mockedPerson.mockPerformance : performanceByKind}
+      data={performanceByKind}
       className="radar"
       outerRadius={80}
       startAngle={startAngle}

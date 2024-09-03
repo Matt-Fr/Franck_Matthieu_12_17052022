@@ -8,17 +8,23 @@ import {
   Legend,
   Bar,
 } from "recharts";
-
-import { useGlobalContext } from "../context";
+import { useParams } from "react-router-dom";
+import { USER_ACTIVITY } from "../data"; // Adjust path as needed
 
 const Barcharts = () => {
-  const { globalDataUser, mockedPerson, mockUserActive } =
-    useGlobalContext() || {};
-  const { sessionsScore } = globalDataUser || {};
+  const { id } = useParams(); // Extract user ID from URL
+
+  // Retrieve user activity data based on user ID
+  const userActivity = USER_ACTIVITY.find(
+    (user) => user.userId === parseInt(id, 10)
+  );
+  const sessionsScore = userActivity ? userActivity.sessions : [];
+
   const contentStyle = {
     color: "#74798c",
     fontSize: "14px",
   };
+
   const renderLegend = (value) => {
     return <span style={contentStyle}>{value}</span>;
   };
@@ -27,7 +33,7 @@ const Barcharts = () => {
     <BarChart
       width={835}
       height={320}
-      data={mockUserActive ? mockedPerson.mockSessionsScore : sessionsScore}
+      data={sessionsScore}
       margin={{ top: 0, right: 48, bottom: 32, left: 48 }}
       barGap={8}
       barCategoryGap="35%"
@@ -41,7 +47,7 @@ const Barcharts = () => {
       />
 
       <XAxis
-        dataKey=""
+        dataKey="day"
         dy={16}
         padding={{ left: -48, right: -48 }}
         stroke="#9B9EAC"

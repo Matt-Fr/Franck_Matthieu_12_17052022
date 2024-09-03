@@ -1,17 +1,21 @@
 import React from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
-import { useGlobalContext } from "../context";
+import { useParams } from "react-router-dom";
+import { USER_MAIN_DATA } from "../data"; // Adjust path as needed
 
 const Radialbarchart = () => {
-  const { globalDataUser, mockedPerson, mockUserActive } =
-    useGlobalContext() || {};
-  const { score } = globalDataUser || "";
+  const { id } = useParams(); // Extract user ID from URL
+
+  // Retrieve user data based on user ID
+  const user = USER_MAIN_DATA.find((user) => user.id === parseInt(id, 10));
+  const score = user ? user.todayScore || user.score : 0;
   const data = [
     {
       name: "L1",
-      value: mockUserActive ? mockedPerson.mockTodayScore : score,
+      value: score,
     },
   ];
+
   const circleSize = 50;
 
   return (
@@ -53,7 +57,7 @@ const Radialbarchart = () => {
           fontWeight: "bold",
         }}
       >
-        {mockUserActive ? mockedPerson.mockTodayScore * 100 : score * 100}%
+        {score * 100}%
       </text>
       <text
         className="pieText"

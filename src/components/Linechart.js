@@ -7,38 +7,34 @@ import {
   Tooltip,
   Line,
 } from "recharts";
-import { useGlobalContext } from "../context";
+import { useParams } from "react-router-dom";
+import { USER_AVERAGE_SESSIONS } from "../data"; // Adjust path as needed
 
 const Linechart = () => {
-  const { globalDataUser, mockedPerson, mockUserActive } =
-    useGlobalContext() || {};
-  const { sessionsTime } = globalDataUser || {};
+  const { id } = useParams(); // Extract user ID from URL
 
-  /**
-   *
-   * @param {object} sessionNumber
-   */
+  // Retrieve data based on user ID
+  const userSessions = USER_AVERAGE_SESSIONS.find(
+    (user) => user.userId === parseInt(id, 10)
+  );
+  const sessionsTime = userSessions ? userSessions.sessions : [];
 
-  const changeNumbersToDay = (sessionNumber) => {
-    if (sessionNumber) {
-      sessionNumber[0].day = "L";
-      sessionNumber[1].day = "M";
-      sessionNumber[2].day = "M";
-      sessionNumber[3].day = "J";
-      sessionNumber[4].day = "V";
-      sessionNumber[5].day = "S";
-      sessionNumber[6].day = "D";
+  // Convert session numbers to day labels
+  const changeNumbersToDay = (sessions) => {
+    if (sessions) {
+      sessions.forEach((session, index) => {
+        session.day = ["L", "M", "M", "J", "V", "S", "D"][index];
+      });
     }
   };
 
   changeNumbersToDay(sessionsTime);
-  changeNumbersToDay(mockedPerson.mockSessions);
 
   return (
     <LineChart
       width={258}
       height={263}
-      data={mockUserActive ? mockedPerson.mockSessions : sessionsTime}
+      data={sessionsTime}
       className="linechart"
     >
       <CartesianGrid strokeDasharray="0 3" />
@@ -72,7 +68,6 @@ const Linechart = () => {
           height: 100,
         }}
       />
-
       <Line
         activeDot={{
           fill: "white",
