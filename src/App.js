@@ -9,9 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
-          {/* <Route path="*" element={<Error />}></Route> */}
           <Route path="profil" element={<Profil />}></Route>
-          <Route path="/user/:id" element={<Profil />}></Route>
+          <Route path="user/:id" element={<Profil />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
